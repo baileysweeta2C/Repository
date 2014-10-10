@@ -1,0 +1,53 @@
+v2
+
+cacheable='1
+
+regex='op" value="([^"]+)"
+scrape
+op=v1
+
+regex='id" value="([^"]+)"
+match htmRaw
+id=v1
+
+regex='rand" value="([^"]+)"
+match htmRaw
+rand=v1
+
+regex='>(File Not Found)<
+match htmRaw
+
+if v1
+  error 'File no longer exists, check source URL.
+endif
+
+if op='
+  error 'Failed to parse video option.
+endif
+
+if id='
+  error 'Video ID not found.
+endif
+
+if rand='
+  error 'Key not found.
+endif
+
+s_postdata='op=
+concat s_postdata op
+concat s_postdata '&id=
+concat s_postdata id
+concat s_postdata '&rand=
+concat s_postdata rand
+concat s_postdata '&referer=&method_free=&method_premium=
+
+s_method='post
+regex='href="([^"]+)">Download Link
+scrape
+
+if v1
+  url=v1
+  play
+else
+  error 'Video URL not found.
+endif

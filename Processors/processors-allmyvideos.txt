@@ -1,0 +1,57 @@
+v2
+
+# processor by wlfwood
+
+cacheable='1
+
+regex='op" value="([^"]+)"
+scrape
+op=v1
+
+regex='id" value="([^"]+)"
+match htmRaw
+id=v1
+
+regex='fname" value="([^"]+)"
+match htmRaw
+fname=v1
+
+regex='>(File Not Found)<
+match htmRaw
+
+if v1
+  error 'File no longer exists, check source URL.
+endif
+
+if op='
+  error 'Failed to parse video option.
+endif
+
+if id='
+  error 'Video ID not found.
+endif
+
+if fname='
+  error 'Filename not found.
+else
+  escape fname
+endif
+
+s_postdata='op=
+concat s_postdata op
+concat s_postdata '&usr_login=&id=
+concat s_postdata id
+concat s_postdata '&fname=
+concat s_postdata fname
+concat s_postdata '&referer=&method_free=1
+
+s_method='post
+regex='"file" : "([^"]+)",
+scrape
+
+if v1
+  url=v1
+  play
+else
+  error 'Video URL not found.
+endif

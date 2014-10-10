@@ -1,0 +1,106 @@
+v2
+
+#verbose 2
+cacheable='1
+s_agent='Mozilla/5.0
+s_referer='http://www.dubbedepisodes.org/
+
+url_ori=s_url
+
+s_agent='Mozilla/5.0
+s_referer='http://www.dubbedepisodes.org/
+s_url='http://www.dubbedepisodes.org/
+scrape
+
+s_cookie='__cfduid=
+concat s_cookie cookies.__cfduid
+
+s_agent='Mozilla/5.0
+s_referer='http://www.dubbedepisodes.org/
+s_url=url_ori
+regex='Page not found
+scrape
+
+if v1>'
+  error 'Page not found.
+endif
+
+regex='iframe src="([^"]+)
+match htmRaw
+
+if v1>'
+  s_url=v1
+  regex='#038;
+  replace s_url '
+else
+  error 'Failed to retrieve media source.
+endif
+
+regex='value="([^"]+)" name="user"
+scrape
+
+if v1>'
+  s_postdata='user=
+  concat s_postdata v1
+else
+  print htmRaw
+  error 'Failed to parse media data.
+endif
+
+regex='value="([^"]+)" name="player"
+match htmRaw
+if v1>'
+  concat s_postdata '&player=
+  concat s_postdata v1
+endif
+
+regex='value="([^"]+)" name="filename"
+match htmRaw
+if v1>'
+  concat s_postdata '&filename=
+  concat s_postdata v1
+endif
+
+regex='value="([^"]+)" name="width"
+match htmRaw
+if v1>'
+  concat s_postdata '&width=
+  concat s_postdata v1
+endif
+
+regex='value="([^"]+)" name="height"
+match htmRaw
+if v1>'
+  concat s_postdata '&height=
+  concat s_postdata v1
+endif
+
+regex='value="([^"]+)" name="server"
+match htmRaw
+if v1>'
+  concat s_postdata '&server=
+  concat s_postdata v1
+endif
+
+regex='value="([^"]+)" name="submit"
+match htmRaw
+if v1>'
+  escape v1
+  concat s_postdata '&submit=
+  concat s_postdata v1
+endif
+
+regex='([^?]+)
+match s_url
+s_url=v1
+s_method='post
+regex='file: "([^"]+)
+scrape
+
+if v1>'
+  url=v1
+  play
+else
+  print htmRaw
+  error 'Failed to retrieve final source URL.
+endif

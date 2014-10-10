@@ -1,0 +1,68 @@
+v2
+
+cacheable='1
+
+regex='video" content="([^"]+)"
+scrape
+
+if v1
+  s_url=v1
+  last=s_url
+  s_action='geturl
+  scrape
+else
+  error 'Unable to retreive video source.
+endif
+
+if v1=last
+  error 'Failed to retreive Source URL.
+else
+  geturl=v1
+  regex='&file=([^&]+)&
+  match geturl
+  file=v1
+
+  regex='&filekey=([^&]+)&
+  match geturl
+  key=v1
+  regex='\.
+  replace key '%2E
+  regex='-
+  replace key '%2D
+
+  regex='(.*\player\.swf)\?
+  match geturl
+  player=v1
+endif
+
+if file='
+  error 'File not found.
+endif
+
+if key='
+  error 'Key not found.
+endif
+
+s_url='https://www.cloudy.ec/api/player.api.php?key=
+concat s_url key
+concat s_url '&pass=undefined&user=undefined&cid=undefined&numOfErrors=0&cid2=undefined&file=
+concat s_url file
+concat s_url '&cid3=undefined
+
+regex='url=([^&]+)&title
+if player
+  s_referer=player
+else
+  s_referer=https://www.cloudy.ec/player/player.swf
+endif
+scrape
+
+if v1
+  url=v1
+  unescape url
+  concat url '?client=FLASH
+  s_referer=ref
+  play
+else
+  error 'Video URL not found.
+endif

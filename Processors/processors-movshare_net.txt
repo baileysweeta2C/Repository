@@ -1,0 +1,63 @@
+v2
+
+cacheable='1
+
+regex='(no longer exists)
+scrape
+
+if v1>'
+  error 'File no longer exists on the server.
+endif
+
+regex='flashvars\.file="([^"]+)
+match htmRaw
+file=v1
+
+regex='flashvars\.filekey="([^"]+)
+match htmRaw
+filekey=v1
+
+regex='flashvars\.cid="([^"]+)
+match htmRaw
+cid=v1
+
+if file='
+  error 'File ID not found.
+endif
+
+if filekey='
+  error 'File key not found.
+else
+  escape filekey
+endif
+
+if cid='
+  cid=undefined
+endif
+
+s_url='http://www.movshare.net/api/player.api.php?pass=undefined&cid=
+concat s_url cid
+concat s_url '&user=undefined&key=
+concat s_url filekey
+concat s_url '&cid3=undefined&numOfErrors=0&file=
+concat s_url file
+concat s_url '&cid2=undefined
+
+cookies='lastvideo=
+concat s_cookie cookies.lastvideo
+concat s_cookie ';
+concat s_cookie ' aff=
+concat s_cookie cookies.aff
+concat s_cookie ';
+
+regex='url=([^&]+)
+scrape
+
+print htmRaw
+
+if v1>'
+  url=v1
+  play
+else
+  error 'Could not retrieve video source.
+endif

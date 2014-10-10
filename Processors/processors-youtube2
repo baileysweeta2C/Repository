@@ -1,0 +1,170 @@
+v2
+
+s_url='http://www.youtube.com/watch?v=
+s_agent='Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0
+#regex='(?ms)var swf\s*=\s*"(.*?)</script>
+#regex='url_encoded_fmt_stream_map=(.+)\\u0026amp;
+regex='"url_encoded_fmt_stream_map": "([^"]+)
+scrape
+
+if v1='
+	print htmRaw
+	error 'Could not find url_encoded_fmt_stream_map parameter
+endif
+
+stream_map=',
+concat stream_map v1
+concat stream_map ',
+
+print stream_map
+# remove commas from codec specs before unescaping
+regex='%2C
+replace stream_map '
+
+unescape stream_map
+
+print 'Searching for default format: 360p mp4 (18)
+
+regex=',([^,]*?itag=18[^,]*)
+match stream_map
+if v1
+	print 'Found 360p mp4 (itag 18)
+	stream=v1
+	print stream
+	regex='url=([^\\]+)
+	match stream
+	url=v1
+	#unescape url
+	print url
+	regex='sig=([^\\]+)
+	match stream
+	sig=v1
+	if sig='
+		regex='26s=([^\\]+)
+		match stream
+		sig=v1
+	endif
+	if sig='
+		regex='^s=([^\\]+)
+		match stream
+		sig=v1
+	endif
+		
+	print sig
+	concat url '&signature=
+	concat url sig
+	play
+endif
+
+
+regex=',([^,]*?itag=34[^,]*)
+match stream_map
+if v1
+	print 'Found 360p flv (itag 34)
+	stream=v1
+	print stream
+	regex='url=([^\\]+)
+	match stream
+	url=v1
+	#unescape url
+	print url
+	regex='sig=([^\\]+)
+	match stream
+	sig=v1
+	if sig='
+		regex='26s=([^\\]+)
+		match stream
+		sig=v1
+	endif
+	if sig='
+		regex='^s=([^\\]+)
+		match stream
+		sig=v1
+	endif
+		
+	print sig
+	concat url '&signature=
+	concat url sig
+	play
+endif
+
+
+regex=',([^,]*?itag=5[^,]*)
+match stream_map
+if v1
+	print 'Found 240p flv (itag 5)
+	stream=v1
+	print stream
+	regex='url=([^\\]+)
+	match stream
+	url=v1
+	#unescape url
+	print url
+	regex='sig=([^\\]+)
+	match stream
+	sig=v1
+	if sig='
+		regex='26s=([^\\]+)
+		match stream
+		sig=v1
+	endif
+	if sig='
+		regex='^s=([^\\]+)
+		match stream
+		sig=v1
+	endif
+		
+	print sig
+	concat url '&signature=
+	concat url sig
+	play
+endif
+
+
+regex=',([^,]*?itag=0[^,]*)
+match stream_map
+if v1
+	print 'Found 240p flv (itag 0)
+	stream=v1
+	print stream
+	regex='url=([^\\]+)
+	match stream
+	url=v1
+	#unescape url
+	print url
+	regex='sig=([^\\]+)
+	match stream
+	sig=v1
+	if sig='
+		regex='26s=([^\\]+)
+		match stream
+		sig=v1
+	endif
+	if sig='
+		regex='^s=([^\\]+)
+		match stream
+		sig=v1
+	endif
+		
+	print sig
+	concat url '&signature=
+	concat url sig
+	play
+endif
+
+
+
+
+# check for error message from original api call
+regex='status=fail&errorcode=\d+&reason=(.*?)%3C
+match apiraw
+if v1
+	regex='\+
+	replace v1 ' 
+	error v1
+endif
+
+error 'Could not resolve video parameters
+print 'Preferred format not found - falling back to original
+url=s_url
+play

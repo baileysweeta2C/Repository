@@ -1,0 +1,296 @@
+v2
+
+
+
+verbose 2
+
+if nookie_expires='
+  showtime='yes
+endif
+
+url_ori=s_url
+
+regex='(http://[^/]+)
+match s_url
+url_dn=v1
+
+regex='<script>\r\n(.*\r\nvar.*)
+scrape
+js=v1
+
+regex='(___utmvc)
+match htmRaw
+digest=v1
+
+regex='(NAME="robots")
+match htmRaw
+incap=v1
+
+regex='(Request unsuccessful)
+match htmRaw
+if v1>'
+  error 'Request was denied, try again in a few minutes.
+endif
+
+#Build Cookie
+regex='(incap_ses_[^_]+_[^;]+)
+if showtime>'
+  match headers.Set-Cookie
+else
+  match headers.set-cookie
+endif
+if v1>'
+incap_ses=v1
+endif
+visid_incap='; visid_incap_103195=
+concat visid_incap cookies.visid_incap_103195
+mycookie='lang=english
+if incap_ses>'
+  concat mycookie ';%20
+  concat mycookie incap_ses
+endif
+concat mycookie visid_incap
+# End
+
+if incap>'
+  if js>'
+    v1='
+    if digest>'
+      s_postdata='var cookie='
+      concat s_postdata incap_ses
+      concat s_postdata '';incap_digest();
+      concat s_postdata js
+    else
+      s_postdata=js
+    endif
+    escape s_postdata
+    s_method='post
+    s_url='http://www.navixtreme.com/cgi-bin/wlfwood/jsunpack
+    regex='GET","([^"]+)
+    scrape
+    mykey=v1
+    regex='(___utmvc=[^;]+)
+    match htmRaw
+    utmvc=v1
+  else
+    print htmRaw
+    error 'Failed to retrieve test data.
+  endif
+
+  if mykey>'
+    v1='
+    s_referer=url_ori
+    s_cookie=mycookie
+    if utmvc>'
+      escape utmvc
+      concat s_cookie ';%20
+      concat s_cookie utmvc
+    endif
+    mycookie=s_cookie
+    unescape s_cookie
+    s_url=url_dn
+    concat s_url mykey
+    scrape
+  else
+    print htmRaw
+    error 'Failed to parse test data.
+  endif
+
+  # Rebuild Cookie
+  regex='(incap_ses_[^_]+_[^;]+)
+  if showtime>'
+    match headers.Set-Cookie
+  else
+    match headers.set-cookie
+  endif
+  incap_ses=v1
+  if incap_ses>'
+    concat mycookie ';%20
+    concat mycookie incap_ses
+  endif
+  # End
+
+  v1='
+  s_cookie=mycookie
+  unescape s_cookie
+  s_url=url_ori
+  s_method='get
+  scrape
+endif
+
+regex='(NAME="robots")
+match htmRaw
+if v1>'
+  print htmRaw
+  error 'Test Failed. Try Again.
+endif
+
+regex='(File Not Found)
+match htmRaw
+if v1>'
+  error 'File Not Found.
+endif
+
+regex='(id="distil_ident_block)"
+match htmRaw
+if v1>'
+  error 'Billionuploads has temporarily blocked your IP.
+endif
+
+regex='name="op" value="([^"]+)
+match htmRaw
+op=v1
+
+regex='name="id" value="([^"]+)
+match htmRaw
+id=v1
+
+regex='name="rand" value="([^"]+)
+match htmRaw
+rand=v1
+
+regex='name="referer" value="([^"]+)
+match htmRaw
+referer=v1
+
+regex='name="sys" value="([^"]+)
+match htmRaw
+sys=v1
+
+regex='name="gloss" value="([^"]+)
+match htmRaw
+gloss=v1
+
+regex='name="down_direct" value="([^"]+)
+match htmRaw
+down_direct=v1
+
+regex='btn_download" name="([^"]+)
+match htmRaw
+btn_download=v1
+
+regex='decodeURIComponent\("([^"]+)
+match htmRaw
+if v1>'
+  unescape v1
+  hidden=v1
+  regex='name="([^"]+)" value="([^"]+)"
+  match hidden
+  kname=v1
+  kval=v2
+endif
+
+regex='document\.createElement\('input'\)\).attr\('type','hidden'\).attr\('name','([^']+)'
+match htmRaw
+kname2=v1
+
+regex='hidden">([^<]+)</textarea>
+match htmRaw
+kval2=v1
+
+regex='\.find\('input\[name="([^"]+)"\]'\).remove\(\);
+match htmRaw
+if v1='rand
+  rand='
+elseif v1='sys
+  sys='
+elseif v1='gloss
+  gloss='
+endif
+
+regex=';\$\('input\[name="([^"]+)"\]'\)\.remove\(\)
+match htmRaw
+if v1='rand
+  rand='
+elseif v1='sys
+  sys='
+elseif v1='gloss
+  gloss='
+endif
+
+regex='>\$\('input\[name="([^"]+)"\]'\)\.remove\(\)
+match htmRaw
+if v1='rand
+  rand='
+elseif v1='sys
+  sys='
+elseif v1='gloss
+  gloss='
+endif
+
+if id='
+  error 'File ID not found.
+endif
+
+if op='
+  error 'Option not found.
+endif
+
+s_postdata='op=
+concat s_postdata op
+concat s_postdata '&id=
+concat s_postdata id
+if rand>'
+  concat s_postdata '&rand=
+  concat s_postdata rand
+endif
+
+concat s_postdata '&referer=
+concat s_postdata referer
+
+if sys>'
+  concat s_postdata '&sys=
+  concat s_postdata sys
+endif
+if gloss>'
+  concat s_postdata '&gloss=
+  concat s_postdata gloss
+endif
+concat s_postdata '&method_free=&method_premium=
+if down_direct>'
+  concat s_postdata '&down_direct=
+  concat s_postdata down_direct
+endif
+if btn_download>'
+  concat s_postdata '&
+  concat s_postdata btn_download
+  concat s_postdata '=
+endif
+if kval>'
+  concat s_postdata '&
+  concat s_postdata kname
+  concat s_postdata '=
+  concat s_postdata kval
+endif
+if kval2>'
+  concat s_postdata '&
+  concat s_postdata kname2
+  concat s_postdata '=
+  concat s_postdata kval2
+endif
+
+# Rebuild Cookie
+regex='(incap_ses_[^_]+_[^;]+)
+if showtime>'
+  match headers.Set-Cookie
+else
+  match headers.set-cookie
+endif
+incap_ses=v1
+if incap_ses>'
+  concat mycookie ';%20
+  concat mycookie incap_ses
+endif
+concat mycookie '; aff=
+concat mycookie cookies.aff
+# End
+
+s_cookie=mycookie
+unescape s_cookie
+s_referer=url_ori
+s_url=url_ori
+s_method='post
+regex='subway="metro">.*?XXX(.*?)XXX
+scrape
+
+report

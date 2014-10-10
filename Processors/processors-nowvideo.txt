@@ -1,0 +1,71 @@
+v2
+
+# processor by wlfwood
+
+cacheable='1
+
+regex='embed\.nowvideo\.(ch|sx)/embed\.php\?v=([^&]+)&
+scrape
+
+if v2
+  tld=v1
+  s_url='http://embed.nowvideo.
+  concat s_url v1
+  concat s_url '/embed.php?v=
+  concat s_url v2
+else
+  error 'Processing Failed: Check Source URL.
+endif
+
+regex='file="([^"]+)"
+scrape
+file=v1
+
+regex='fkzd="([^"]+)"
+match htmRaw
+key=v1
+regex='\.
+replace key '%2E
+regex='-
+replace key '%2D
+
+regex='"([^"]+\.swf")
+match htmRaw
+player=v1
+
+if file='
+  error 'File not found.
+endif
+
+if key='
+  error 'Key not found.
+endif
+
+if player
+  ref='http://www.nowvideo.
+  concat ref tld
+  concat ref player
+endif
+
+s_url='http://www.nowvideo.
+concat s_url tld
+concat s_url '/api/player.api.php?key=
+concat s_url key
+concat s_url '&pass=undefined&user=undefined&cid=undefined&numOfErrors=0&cid2=undefined&file=
+concat s_url file
+concat s_url '&cid3=undefined
+
+regex='url=([^&]+)&title
+if ref
+  s_referer=ref
+endif
+scrape
+
+if v1
+  url=v1
+  concat url '?client=FLASH
+  s_referer=ref
+  play
+else
+  error 'Video URL not found.
+endif

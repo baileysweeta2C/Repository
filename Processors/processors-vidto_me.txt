@@ -1,0 +1,59 @@
+v2
+
+cacheable='1
+ori_url=s_url
+s_cookie='lang=english
+
+
+regex='(Video is processing)
+scrape
+if v1
+	print htmRaw
+	error 'Movie Is Being Converted
+endif
+
+
+regex='<input type="hidden" name="op" value="([^"]+)">[\s]+<input type="hidden" name="usr_login" value="([^"]*)">[\s]+<input type="hidden" name="id" value="([^"]+)">[\s]+<input type="hidden" name="fname" value="([^"]+)">[\s]+<input type="hidden" name="referer" value="([^"]*)">[\s]+<input type="hidden" name="hash" value="([^"]+)
+match htmRaw
+if v1='
+	regex='<input type="hidden" name="op" value="([^"]+)">[\s]+<input type="hidden" name="id" value="([^"]+)">[\s]+<input type="hidden" name="rand" value="([^"]+)">[\s]+<input type="hidden" name="referer" value="([^"]*)">[\s]+<input type="hidden" name="hash" value="([^"]+)
+	match htmRaw
+	bypass=v1
+endif
+
+countdown_title='Vidto now requires a 6 second countdown
+	countdown_caption='Account login not implemented in processor
+	countdown '7
+
+#set up the cookies and store off postdata for later use
+cookieval='lang=english		
+pdata='op=
+concat pdata v1
+concat pdata '&usr_login=
+concat pdata v2
+concat pdata '&id=
+concat pdata v3
+concat pdata '&fname=
+concat pdata v4
+concat pdata '&referer=
+concat pdata v5
+concat pdata '&hash=
+concat pdata v6
+concat pdata '&imhuman=Proceed to video
+s_method='post
+s_postdata=pdata
+
+
+regex='<div class="private-download-link"><h1><a id="lnk_download" href="([^"]+)">Download Original Video</a>
+scrape
+
+if v1
+	url=v1
+	regex=' 
+	replace url '%20
+#	concat url ori_url
+	play
+endif
+
+print htmRaw
+error 'Could Not Resolve Link Format

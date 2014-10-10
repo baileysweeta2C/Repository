@@ -1,0 +1,150 @@
+v2
+
+cacheable='1
+#verbose 2
+
+if nookie_expires='
+  showtime='1
+endif
+
+url_ori=s_url
+scrape
+
+regex='name="op" value="([^"]+)
+match htmRaw
+if v1>'
+  op=v1
+else
+  error 'Download option not found.
+endif
+
+regex='id" value="([^"]+)
+match htmRaw
+if v1>'
+  id=v1
+else
+  error 'File ID not found, file was likely removed, check the source URL.
+endif
+
+regex='fname" value="([^"]+)
+match htmRaw
+if v1>'
+  fname=v1
+else
+  error 'Filename not found.
+endif
+
+regex='referer" value="([^"]+)
+match htmRaw
+referer=v1
+
+s_postdata='op=
+concat s_postdata op
+concat s_postdata '&usr_login=&id=
+concat s_postdata id
+concat s_postdata '&fname=
+concat s_postdata fname
+concat s_postdata '&referer=
+if referer>'
+  concat s_postdata referer
+endif
+concat s_postdata '&method_free=Free
+
+mycookie='__cfduid=
+concat mycookie cookies.__cfduid
+concat mycookie '; lang=english
+
+s_cookie=mycookie
+s_referer=url_ori
+s_method='post
+regex='name="rand" value="([^"]+)
+scrape
+rand=v1
+
+regex='(eval.+)\n</script>\n<br
+match htmRaw
+obstr=v1
+
+if rand>'
+  regex='name="op" value="([^"]+)
+  match htmRaw
+  op=v1
+
+  regex='id" value="([^"]+)
+  match htmRaw
+  id=v1
+
+  regex='name="referer" value="([^"]+)
+  match htmRaw
+  referer=v1
+
+  postdata='op=
+  concat postdata op
+  concat postdata '&id=
+  concat postdata id
+  concat postdata '&rand=
+  concat postdata rand
+  concat postdata '&referer=
+  concat postdata referer
+  concat postdata '&method_free=Free&method_premium=
+
+  if showtime>'
+    s_cookie=mycookie
+    s_referer=url_ori
+    s_postdata=postdata
+    s_action='headers
+    s_method='post
+    scrape
+    regex='(http://.+)
+    match headers.Location
+    furl=v1
+  else
+    s_cookie=mycookie
+    s_referer=url_ori
+    s_postdata=postdata
+    s_action='geturl
+    s_method='post
+    scrape
+    furl=v1
+  endif
+
+  if furl=url_ori
+    furl='
+  endif
+
+endif
+
+if furl>'
+  url=furl
+  play
+endif
+
+if obstr='
+  error 'Obfuscation string not found.
+endif
+
+escape obstr
+s_postdata=obstr
+s_method='post
+s_url='http://www.navixtreme.com/cgi-bin/wlfwood/jsunpack
+v1='
+regex='file','([^']+)
+scrape
+
+if v1='
+  error 'Unable to retrieve final URL.
+endif
+
+url=v1
+concat url '?start=0
+
+regex='SWFObject\('([^']+)
+match htmRaw
+
+if v1>'
+  s_referer=v1
+else
+  s_referer='http://filenuke.com/player/player.swf
+endif
+
+play

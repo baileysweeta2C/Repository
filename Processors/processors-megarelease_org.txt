@@ -1,0 +1,35 @@
+v2
+
+#verbose 2
+cachable='1
+
+url_ori=s_url
+
+regex='b>(File Not Found)</
+scrape
+
+if v1>'
+  error 'File Not Found.
+endif
+
+regex='name="id" value="([^"]+)
+match htmRaw
+
+if v1>'
+  s_url='http://megarelease.org/vidembed-
+  concat s_url v1
+  last=s_url
+  s_cookie='lang=english
+  s_referer=url_ori
+  s_action='geturl
+  scrape
+else
+  error 'Video ID Not Found.
+endif
+
+if v1=last
+  error 'Failed to retreive Source URL.
+else
+  url=v1
+  play
+endif
