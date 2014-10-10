@@ -6,9 +6,9 @@ title=themovielist2013
 # 9999998
 type=playlist
 name=Movies
-thumb=https://raw.github.com/Willieret54/Femoter/master/Art/Movies1.png
+thumb=https://github.com/baileysweeta2C/Repository/raw/master/Art/Movies1.png
 date=2014-01-12
-URL=https://raw.github.com/Willieret54/Femoter/master/PLX/Featured.plx
+URL=https://raw.githubusercontent.com/baileysweeta2C/Repository/master/PLX/Featured.plx
 player=default
 rating=-1.00
 
@@ -16,9 +16,9 @@ rating=-1.00
 # 9999999
 type=playlist
 name=Kids Movies
-thumb=https://raw.github.com/Willieret54/Femoter/master/Art/MoviesKids.png
+thumb=https://github.com/baileysweeta2C/Repository/raw/master/Art/MoviesKids.png
 date=2014-01-12
-URL=https://raw.github.com/Willieret54/Femoter/master/PLX/Kids.plx
+URL=https://github.com/baileysweeta2C/Repository/raw/master/PLX/Kids.plx
 player=default
 rating=-1.00
 
