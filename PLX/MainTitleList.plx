@@ -24,10 +24,10 @@ rating=-1.00
 
 # 9999997
 type=playlist
-name=Live TV
-thumb=https://raw.github.com/Willieret54/Femoter/master/Art/livetv.png
+name=TV
+thumb=https://github.com/baileysweeta2C/Repository/raw/master/Art/livetv.png
 date=2014-01-12
-URL=https://raw.github.com/Willieret54/Femoter/master/PLX/livetv.plx
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_freetv?q=getupdated
 player=default
 rating=-1.00
 
