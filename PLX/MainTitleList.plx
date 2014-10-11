@@ -8,7 +8,7 @@ type=playlist
 name=Movies
 thumb=https://github.com/baileysweeta2C/Repository/raw/master/Art/Movies1.png
 date=2014-01-12
-URL=https://github.com/baileysweeta2C/Repository/raw/master/PLX/MovieList.plx
+URL=https://github.com/baileysweeta2C/Repository/raw/master/PLX/Featured.plx
 player=default
 rating=-1.00
 
