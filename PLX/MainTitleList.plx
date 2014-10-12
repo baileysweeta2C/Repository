@@ -3,7 +3,15 @@ title=themovielist2013
 
 
 
-
+# 2190014
+type=video
+name= Annabelle (2014) 
+thumb=http://ia.media-imdb.com/images/M/MV5BMjM2MTYyMzk1OV5BMl5BanBnXkFtZTgwNDg2MjMyMjE@._V1_SX214_AL_.jpg
+date=2014-01-12
+URL=http://www.nowvideo.sx/video/2f92f09df99dc
+processor=https://raw.github.com/Willieret54/Femoter/master/Processors/processors-nowvideo.txt
+player=default
+rating=-1.00
 
 
 
