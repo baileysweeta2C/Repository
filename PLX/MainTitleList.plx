@@ -13,6 +13,19 @@ player=default
 rating=-1.00
 
 
+# 2190014
+type=video
+name= 
+Dracula Untold (2014) 
+thumb=http://ia.media-imdb.com/images/M/MV5BMTkzNzI1OTI4N15BMl5BanBnXkFtZTgwNTQ2NzEwMjE@._V1_SX214_AL_.jpg
+URL=http://www.nowvideo.sx/video/002176666457c
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/master/Processors/processors-nowvideo.txt
+player=default
+rating=-1.00
+
+
+
+
 
 # 2190014
 type=video
