@@ -2,6 +2,17 @@ version=1
 title=themovielist2013
 
 
+# 2190014
+type=video
+name= The Boxtrolls (2014) 
+thumb=http://ia.media-imdb.com/images/M/MV5BMTQxODA5MDkyNV5BMl5BanBnXkFtZTgwMDMyNjkzMjE@._V1_SX214_AL_.jpg
+date=2014-01-12
+URL=http://www.nowvideo.sx/video/3b97e955c799e
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/master/Processors/processors-nowvideo.txt
+player=default
+rating=-1.00
+
+
 
 # 2190014
 type=video
