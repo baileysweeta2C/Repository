@@ -1,6 +1,9 @@
 version=1
-title=navixtreme.com/playlist/day.plx
+title=movies
 
+
+
+# 2190555
 type=playlist
 name=[COLOR=FFFF00FF] MOVIES [/COLOR] [COLOR=FFFF00FF] Now Including 3D [/COLOR]
 thumb=http://www.mirrorservice.org/sites/addons.superrepo.org/addons/frodo/plugin.video.yifymovies.hd/icon.png
