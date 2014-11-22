@@ -450,7 +450,7 @@ type=video
 name=Lisa Ann - Mommy Got Boobs
 thumb=http://i.imgur.com/Fl793X3.jpg
 URL=http://billionuploads.com/tzwz8cymez7a
-processor=http://www.navixtreme.com/proc/billionuploads
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/bffe8d247e9fa33837a2bce00c9152429bd353c3/Processors/processors-Billionuploads--semi-working.txt
 player=default
 rating=-1.00
 
@@ -459,7 +459,7 @@ type=video
 name=Dani Daniels - ZZ Series
 thumb=http://i.imgur.com/WOBWe09.jpg
 URL=http://billionuploads.com/dfaekla1nzye
-processor=http://www.navixtreme.com/proc/billionuploads
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/bffe8d247e9fa33837a2bce00c9152429bd353c3/Processors/processors-Billionuploads--semi-working.txt
 player=default
 rating=-1.00
 
@@ -468,7 +468,7 @@ type=video
 name=Ava Addams - Real Wife Stories
 thumb=http://i.imgur.com/1PSswyS.jpg
 URL=http://billionuploads.com/gnhmx2217hy9
-processor=http://www.navixtreme.com/proc/billionuploads
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/bffe8d247e9fa33837a2bce00c9152429bd353c3/Processors/processors-Billionuploads--semi-working.txt
 player=default
 rating=-1.00
 
@@ -477,7 +477,7 @@ type=video
 name=Jasmine Caro, Kiara Mia, Luna Star, and Rose Monroe - Pornstars Like It Big
 thumb=http://i.imgur.com/Kae365d.jpg
 URL=http://billionuploads.com/2fi1iz3ai3c9
-processor=http://www.navixtreme.com/proc/billionuploads
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/bffe8d247e9fa33837a2bce00c9152429bd353c3/Processors/processors-Billionuploads--semi-working.txt
 player=default
 rating=-1.00
 type=playlist
