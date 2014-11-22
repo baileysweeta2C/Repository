@@ -1,5 +1,43 @@
 version=1
-title=themovielist2013
+title=navixtreme.com/playlist/day.plx
+
+type=playlist
+name=[COLOR=FFFF00FF] MOVIES [/COLOR] [COLOR=FFFF00FF] Now Including 3D [/COLOR]
+thumb=http://www.mirrorservice.org/sites/addons.superrepo.org/addons/frodo/plugin.video.yifymovies.hd/icon.png
+date=2014-11-19
+URL=navixtreme.com/playlist/day.plx
+description=
+
+
+
+
+
+# 2190014
+type=video
+name= Addicted (2014)  
+thumb=http://ia.media-imdb.com/images/M/MV5BNjMzMTUyNzU3Nl5BMl5BanBnXkFtZTgwNjM5MjAwMjE@._V1_SX214_AL_.jpg
+date=2014-01-12
+URL=http://www.nowvideo.sx/video/abccc353bd087
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/master/Processors/processors-nowvideo.txt
+player=default
+rating=-1.00
+
+
+
+
+
+
+
+# 2190014
+type=video
+name= Big Hero 6 (2014)  
+thumb=http://ia.media-imdb.com/images/M/MV5BMjI4MTIzODU2NV5BMl5BanBnXkFtZTgwMjE0NDAwMjE@._V1_SY317_CR0,0,214,317_AL_.jpg
+date=2014-01-12
+URL=http://www.nowvideo.sx/video/60ae3f0d50089
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/master/Processors/processors-nowvideo.txt
+player=default
+rating=-1.00
+
 
 
 # 2190014
