@@ -3,13 +3,6 @@ title=movies
 
 
 
-# 2190555
-type=playlist
-name= MOVIES
-thumb=http://www.mirrorservice.org/sites/addons.superrepo.org/addons/frodo/plugin.video.yifymovies.hd/icon.png
-date=2014-11-19
-URL=http://www.navixtreme.com/playlist/day.plx
-description=
 
 
 
