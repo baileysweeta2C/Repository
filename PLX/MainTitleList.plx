@@ -447,11 +447,6 @@ rating=-1.00
 
 
 
-# 2382936
-type=video
-
-URL=http://www.navixtreme.com/playlist/day.plx
-
 
 
 
