@@ -445,32 +445,7 @@ rating=-1.00
 
 
 
-# 2382933
-type=video
-name=Lisa Ann - Mommy Got Boobs
-thumb=http://i.imgur.com/Fl793X3.jpg
-URL=http://billionuploads.com/tzwz8cymez7a
-processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/bffe8d247e9fa33837a2bce00c9152429bd353c3/Processors/processors-Billionuploads--semi-working.txt
-player=default
-rating=-1.00
 
-# 2382934
-type=video
-name=Dani Daniels - ZZ Series
-thumb=http://i.imgur.com/WOBWe09.jpg
-URL=http://billionuploads.com/dfaekla1nzye
-processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/bffe8d247e9fa33837a2bce00c9152429bd353c3/Processors/processors-Billionuploads--semi-working.txt
-player=default
-rating=-1.00
-
-# 2382935
-type=video
-name=Ava Addams - Real Wife Stories
-thumb=http://i.imgur.com/1PSswyS.jpg
-URL=http://billionuploads.com/gnhmx2217hy9
-processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/bffe8d247e9fa33837a2bce00c9152429bd353c3/Processors/processors-Billionuploads--semi-working.txt
-player=default
-rating=-1.00
 
 # 2382936
 type=video
@@ -482,7 +457,7 @@ player=default
 rating=-1.00
 type=playlist
 name=>>>
-URL=http://www.navixtreme.com/playlist/144567/test.plx?page=2
+URL=http://www.navixtreme.com/playlist/day.plx
 
 
 
