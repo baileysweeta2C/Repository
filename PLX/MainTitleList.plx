@@ -449,14 +449,7 @@ rating=-1.00
 
 # 2382936
 type=video
-name=Jasmine Caro, Kiara Mia, Luna Star, and Rose Monroe - Pornstars Like It Big
-thumb=http://i.imgur.com/Kae365d.jpg
-URL=http://billionuploads.com/2fi1iz3ai3c9
-processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/bffe8d247e9fa33837a2bce00c9152429bd353c3/Processors/processors-Billionuploads--semi-working.txt
-player=default
-rating=-1.00
-type=playlist
-name=>>>
+
 URL=http://www.navixtreme.com/playlist/day.plx
 
 
