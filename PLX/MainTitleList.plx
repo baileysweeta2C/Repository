@@ -16,13 +16,14 @@ rating=-1.00
 
 # 2407332
 type=video
-name=Nightcrawler (2014) [COLOR=FFFF00FF]***OSCAR SCREENER***[/COLOR]
+name=Nightcrawler (2014) 
 thumb=http://images.ddlvalley.rocks/images/31502500101103966153.jpg
+date=2014-01-12
 URL=http://billionuploads.com/2rs66fkoe5ub
 processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/e1cb94965a2c4c3638737b03a2c814a4794b7177/Processors/processors-Billionuploads.php
 player=default
 rating=-1.00
-description=
+
 
 
 
