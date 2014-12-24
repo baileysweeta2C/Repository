@@ -1,0 +1,31 @@
+v2
+
+
+regex='/embed/([^/?&#]+)
+match s_url
+vidid=v1
+if vidid='
+	regex='.com/([^/?&#]+)
+	match s_url
+	vidid=v1
+endif
+
+if vidid='
+	error 'Could not parse video ID from URL
+endif
+
+regex='\.html$
+replace vidid '
+
+s_url='http://movreel.com/embed/
+concat s_url vidid
+s_method='post
+s_postdata='op=video_embed&w=600&h=400&method_free=Close%20Ad%20and%20Watch%20as%20Free%20User&file_code=
+concat s_postdata vidid
+regex='(?ms)id="player_code".*?(eval\(function.*?)</script>
+scrape
+if v1='
+	print htmRaw
+	error 'Could not find packed data in source
+endif
+report
