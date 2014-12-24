@@ -14,13 +14,33 @@ rating=-1.00
 
 
 
+
+
 # 2407332
 type=video
-name=Nightcrawler (2014) 
-thumb=http://images.ddlvalley.rocks/images/31502500101103966153.jpg
+name=  The Hunger Games: Mockingjay - Part 1 (2014)   
+thumb=http://ia.media-imdb.com/images/M/MV5BMTcxNDI2NDAzNl5BMl5BanBnXkFtZTgwODM3MTc2MjE@._V1_SX214_AL_.jpg
+date=2014-01-12
+URL=http://www.nowvideo.sx/video/0d65b28481291
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/master/Processors/processors-nowvideo.txt
+player=default
+rating=-1.00
+
+
+
+
+
+
+
+
+
+# 2407332
+type=video
+name= Horrible Bosses 2 (2014)  
+thumb=http://ia.media-imdb.com/images/M/MV5BNzU4OTEzNzAwN15BMl5BanBnXkFtZTgwMTgwODAwMzE@._V1_SX214_AL_.jpg
 date=2014-01-12
 URL=http://billionuploads.com/2rs66fkoe5ub
-processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/e1cb94965a2c4c3638737b03a2c814a4794b7177/Processors/processors-Billionuploads.php
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/master/Processors/processors-nowvideo.txt
 player=default
 rating=-1.00
 
@@ -52,7 +72,7 @@ type=video
 name= Big Hero 6 (2014)  
 thumb=http://ia.media-imdb.com/images/M/MV5BMjI4MTIzODU2NV5BMl5BanBnXkFtZTgwMjE0NDAwMjE@._V1_SY317_CR0,0,214,317_AL_.jpg
 date=2014-01-12
-URL=http://www.nowvideo.sx/video/60ae3f0d50089
+URL=http://www.nowvideo.sx/video/40be44489fe69
 processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/master/Processors/processors-nowvideo.txt
 player=default
 rating=-1.00
