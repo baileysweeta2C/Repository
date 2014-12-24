@@ -5,7 +5,7 @@ title=movies
 
 # 9999998
 type=playlist
-name=Movies 2014
+name= Movies 1 2014
 thumb=https://github.com/baileysweeta2C/Repository/raw/master/Art/Movies1.png
 date=2014-01-12
 URL=http://www.navixtreme.com/playlist/118119/2014_top_movies_always_updated.plx
@@ -13,6 +13,26 @@ player=default
 rating=-1.00
 
 
+# 9999998
+type=playlist
+name= Movies 2 2014
+thumb=https://github.com/baileysweeta2C/Repository/raw/master/Art/Movies1.png
+date=2014-01-12
+URL=http://www.navixtreme.com/playlist/96828/_on_cinema_now_the_hobbit_the_battle_of_the_five_armies_(2014).plx
+player=default
+rating=-1.00
+
+
+
+# 2387034
+type=video
+name= Teenage Mutant Ninja Turtles(2014)
+thumb=http://i.imgur.com/2ulOoMv.jpg
+URL=http://filenuke.com/f/6xeLWN0
+processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/341d0ed3a37de1ef63a1789643ddb636d4c0071d/Processors/filenuke.txt-latest
+player=default
+rating=-1.00
+description=
 
 
 
@@ -20,7 +40,7 @@ rating=-1.00
 
 # 2407332
 type=video
-name=  The Hunger Games: Mockingjay - Part 1 (2014)   
+name= The Hunger Games: Mockingjay - Part 1 (2014)   
 thumb=http://ia.media-imdb.com/images/M/MV5BMTcxNDI2NDAzNl5BMl5BanBnXkFtZTgwODM3MTc2MjE@._V1_SX214_AL_.jpg
 date=2014-01-12
 URL=http://www.nowvideo.sx/video/0d65b28481291
