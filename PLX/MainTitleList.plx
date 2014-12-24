@@ -16,6 +16,8 @@ rating=-1.00
 
 
 
+
+
 # 2407332
 type=video
 name=  The Hunger Games: Mockingjay - Part 1 (2014)   
@@ -39,7 +41,7 @@ type=video
 name= Horrible Bosses 2 (2014)  
 thumb=http://ia.media-imdb.com/images/M/MV5BNzU4OTEzNzAwN15BMl5BanBnXkFtZTgwMTgwODAwMzE@._V1_SX214_AL_.jpg
 date=2014-01-12
-URL=http://billionuploads.com/2rs66fkoe5ub
+URL=http://www.nowvideo.sx/video/eed1ca1265deb
 processor=https://raw.githubusercontent.com/baileysweeta2C/Repository/master/Processors/processors-nowvideo.txt
 player=default
 rating=-1.00
