@@ -8,7 +8,7 @@ type=playlist
 name=Movies 2014
 thumb=https://github.com/baileysweeta2C/Repository/raw/master/Art/Movies1.png
 date=2014-01-12
-URL=http://www.navixtreme.com/playlist/137723/2014_movies....._constant_updates_get_involved_vote_time_.plx
+URL=http://www.navixtreme.com/playlist/118119/2014_top_movies_always_updated.plx
 player=default
 rating=-1.00
 
